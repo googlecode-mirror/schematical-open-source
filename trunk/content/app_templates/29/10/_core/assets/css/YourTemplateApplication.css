@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+/*
+	Css that should NOT be edited by the page owner should go here
+*/	
+#divBody {  
+}
+.clear {
+	clear:both;	
+}

@@ -1,0 +1,1 @@
+<?php FBContestApplication::RenderContestField('FullName');
