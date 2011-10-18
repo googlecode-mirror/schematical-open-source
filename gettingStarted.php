@@ -1,6 +1,4 @@
-<?php
-require(dirname(__FILE__) . '/inc/prepend.inc.php');
-?>
+
 <!DOCTYPE unspecified PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 	<style>
@@ -10,7 +8,8 @@ require(dirname(__FILE__) . '/inc/prepend.inc.php');
 	</style>
 </head>
 <body>
-<?php if(array_key_exists('success', $_GET)){ ?>
+<?php if(array_key_exists('success', $_GET)){ 
+	require(dirname(__FILE__) . '/inc/prepend.inc.php');?>
 	<div style='margin:25Px; padding:10Px; background-color:green;'>
 		<h1>Install has run successfully!!!</h1>
 		<h1><a href='#step3'>Continue to Step 3</a></h1>	
@@ -56,9 +55,15 @@ require(dirname(__FILE__) . '/inc/prepend.inc.php');
 </code>
 <h3>Step 2: Run the install script</h3>
 <p>
-	Once you have completed step one it is time to install all of the database tables that are needed to run an app.(<i>At the time I write this the only application type available is the contest. I challenge you developers out there to build and circulate your own app types, and I also challenge you designers to skin some themes. <a href='mailto:schematical@mattleaconsulting.com'>Let us know</a> if you want to contribute</i>).<br>
-	Go to the following link to <a href='<?php echo __BASE_URL__; ?>/admin/manualInstall.php?app=contest'>Manually Install the Contest</a>
+	Now it is time to install all of the database tables that are needed to run an app.(<i>At the time I write this the only application type available is the contest. I challenge you developers out there to build and circulate your own app types, and I also challenge you designers to skin some themes. <a href='mailto:schematical@mattleaconsulting.com'>Let us know</a> if you want to contribute</i>).<br>
+	Go to the following link to <a href='./admin/manualInstall.php?app=contest'>Manually Install the Contest</a>
 </p>
+<?php if(!array_key_exists('success', $_GET)){ ?>
+<p>
+	Once you have completed step 2 we will display the rest of the steps
+</p>
+<?php }else{ ?>
+
 <h3 id='step3'>Step 3: Register your App With Facebook</h3>
 <p>
 	Start out by visiting <a href='https://developers.facebook.com/apps' target='_blank'>the Facebook Developer App</a> clicking '+ Create new App' and going through the steps of registering an app. 
@@ -165,5 +170,7 @@ require(dirname(__FILE__) . '/inc/prepend.inc.php');
 			<a href='http://youtube.com/mattleaconsulting'>Youtube</a>
 		</li>
 </p>
+<?php }?>
+
 </body>
 </html>

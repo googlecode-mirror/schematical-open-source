@@ -4,7 +4,7 @@
  */
 define('__DOCROOT__', '/var/www/html/');
 
-define('__BASE_URL__', ($_SERVER['HTTPS']?'https':'http') . '://lab.mattleaconsulting.com/schematical');
+define('__BASE_URL__', (array_key_exists('HTTPS', $_SERVER)?'https':'http') . '://lab.mattleaconsulting.com/schematical');
 //define('__DOCROOT__', 'xyz');
 define('DATABASE_1', serialize(array(
 	'host'=>'your_db_host',
