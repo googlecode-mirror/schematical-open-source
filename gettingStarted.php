@@ -19,12 +19,11 @@ require(dirname(__FILE__) . '/inc/prepend.inc.php');
 <h1>Thank you for using the Schematical Framework</h1>
 <?php } ?>
 <p>
-	Schematical is a Framework that helps you rapidly develop Facebook Applications. 
-	Its built to be easy enough for graphical designers to use but flexable enought to allow developers to build what ever they may want	
+	Schematical is a Framework that helps you rapidly develop Facebook Applications. It is built to be easy enough for graphical designers to use but flexible enough to allow developers to build whatever they may want 	
 </p>
 <h3>About the Author</h3>
 <p>
-	Hello, I am Matt Lea. My team and I have been building Facebook apps for about 18 months and we have learned a thing or two about Facebook in that time. Now its time to share the tools we have developed with you. 
+	Hello, I'm Matt Lea. My team and I have been building Facebook apps for about 18 months and we have learned quite a lot about Facebook, and Facebook app development. Now we want to share our tools with you. 
 	This is currently version 1 and is in a beta release though several Facebook pages are using this Framework already, see <a href='http://www.mattleaconsulting.com' target='_blank'>mattleaconsulting.com</a> for details.
 	<br/>
 	<b>Lets get started</b>
@@ -57,7 +56,7 @@ require(dirname(__FILE__) . '/inc/prepend.inc.php');
 </code>
 <h3>Step 2: Run the install script</h3>
 <p>
-	Once you have completed step one its time to install all of the database tables that are needed to run an app.(<i>At the time I write this the only application type available is the contest. I challenge you developers out there to build and circulate your own app types, and I also challenge you designers to skin some themes. <a href='mailto:schematical@mattleaconsulting.com'>Let us know</a> if you want to contribute</i>).<br>
+	Once you have completed step one it is time to install all of the database tables that are needed to run an app.(<i>At the time I write this the only application type available is the contest. I challenge you developers out there to build and circulate your own app types, and I also challenge you designers to skin some themes. <a href='mailto:schematical@mattleaconsulting.com'>Let us know</a> if you want to contribute</i>).<br>
 	Go to the following link to <a href='<?php echo __BASE_URL__; ?>/admin/manualInstall.php?app=contest'>Manually Install the Contest</a>
 </p>
 <h3 id='step3'>Step 3: Register your App With Facebook</h3>
@@ -82,7 +81,7 @@ require(dirname(__FILE__) . '/inc/prepend.inc.php');
 		<h4>Secure Page Tab Url:</h4>
 		This is the same as above but use 'https' instead of 'http'. Make sure your server is SSL enabled.
 		<h4>Page Tab Edit URL:</h4>
-		We currently do not support this, but wil hopefully add this functionality soon
+		We currently do not support this, but will hopefully add this functionality soon 
 	</div>
 <h3>Step 4: Edit your new applications _config.inc.php file</h3>
 <p>
@@ -98,7 +97,7 @@ require(dirname(__FILE__) . '/inc/prepend.inc.php');
 </p>
 <h3>Step 5: Add your page tab to facebook</h3>
 <p>
-	Now you can go back and add your app to any page you control. Instructions can be found a bit lower on the guide on 
+	Now you can go back and add your app to any page you control. Instructions can be found a bit lower in the guide on 
 	<a href='http://developers.facebook.com/docs/appsonfacebook/pagetabs/' target='_blank'>
 		How to set up a Page Tab 
 	</a>.
@@ -166,9 +165,5 @@ require(dirname(__FILE__) . '/inc/prepend.inc.php');
 			<a href='http://youtube.com/mattleaconsulting'>Youtube</a>
 		</li>
 </p>
-
-
-
-
 </body>
 </html>
