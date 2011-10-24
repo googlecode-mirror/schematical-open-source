@@ -10,11 +10,11 @@
 		
 		MFBContestApp.FormData = {};
 		MFBContestApp.FormData.MFBContestData = MFBApp.ReadMFBInputs('.MFBContestInput');
-		FB.getLoginStatus(function(response) {
-			  if (response.status == 'connected') {
+		//FB.getLoginStatus(function(response) {
+			  /*if (response.status == 'connected') {
 			    // logged in and connected user, someone you know
 				 SubmitContestForm(response);
-			  } else {
+			  } else {*/
 			    // no user session available, someone you dont know
 					 FB.ui({
 						   method: 'permissions.request',
@@ -23,8 +23,8 @@
 						  },
 						  SubmitContestForm
 					);
-			  }
-		});
+			//}
+		//});
 
 		
 	}

@@ -4,10 +4,10 @@
 </div>
 <div class="nav clearfix">
    <ul id="button">
-	<li><MFBLink tpl='index' href='#' <?php if ($this->TplMatch('index')) { echo 'class="active"'; } ?>>Contest Details</MFBLink></li>
-	<li><MFBLink tpl='entryForm' href='#' <?php if ($this->TplMatch('entryForm')) { echo 'class="active"'; } ?>>Enter Sweepstakes</MFBLink></li>
-	<li><MFBLink tpl='displayEntries' href='#' <?php if ($this->TplMatch('displayEntries')) { echo 'class="active"'; } ?>>View Entries</MFBLink></li>
-	<li><MFBLink tpl='privacyPolicy' href='#' <?php if ($this->TplMatch('privacyPolicy')) { echo 'class="active"'; } ?>>Official Rules</MFBLink></li>
+	<li><a tpl='index' href='#' class='MFBLink <?php if ($this->TplMatch('index')) { echo 'active'; } ?>'>Contest Details</a></li>
+	<li><a tpl='entryForm' href='#' class='MFBLink <?php if ($this->TplMatch('entryForm')) { echo 'active'; } ?>'>Enter Sweepstakes</a></li>
+	<li><a tpl='displayEntries' href='#' class='MFBLink <?php if ($this->TplMatch('displayEntries')) { echo 'active'; } ?>'>View Entries</a></li>
+	<li><a tpl='privacyPolicy' href='#' class='MFBLink <?php if ($this->TplMatch('privacyPolicy')) { echo 'active'; } ?>'>Official Rules</a></li>
     
 </ul>
 <!-- <?php echo $this->TplName();  ?> -->

@@ -7,9 +7,9 @@
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
               </div>
         <div class="grid6">
-            <h4 class="center"><MFBLink tpl='entryForm' href='#' class="button large">Click Here To Enter</MFBLink></h4>
+            <h4 class="center"><a tpl='entryForm' href='#' class="MFBLink button large">Click Here To Enter</a></h4>
             <div class="divider"><h5><span>or</span></h5></div>
-            <h4 class="center"><MFBLink tpl='displayEntries' href='#' class="button large neutral">See All Entries</MFBLink></h4>
+            <h4 class="center"><a tpl='displayEntries' href='#' class="MFBLink button large neutral">See All Entries</a></h4>
         </div>
     </div>
 </div>

@@ -8,24 +8,24 @@
 <div class="container clearfix">
 	<div class='grid7 first'>    
 		<label for="FirstName">First Name</label>
-		<MFBTextInput validation='required' class='MFBContestInput'  name='FirstName' display_name='First Name'></MFBTextInput>
+		<input type='text' validation='required' class='MFBContestInput MFBTextInput'  name='FirstName' display_name='First Name' />
         <label for="FirstName">Last Name</label>
-		<MFBTextInput validation='required' class='MFBContestInput'  name='LastName' display_name='Last Name'></MFBTextInput>
+		<input type='text' validation='required' class='MFBContestInput MFBTextInput'  name='LastName' display_name='Last Name' />
 		<label for="Email">Email:</label>
-		<MFBTextInput class='MFBContestInput' validation='email' name='Email' confirm_input='txtConfirmEmail'  display_name='Email'></MFBTextInput>
+		<input type='text' class='MFBContestInput MFBTextInput' validation='email' name='Email' confirm_input='txtConfirmEmail'  display_name='Email' />
 		<label for="ConfirmEmail">Confirm-Email:</label>
-		<MFBTextInput id='txtConfirmEmail' name='ConfirmEmail' ><!-- class='MFBContestInput'  name='ConfirmEmail' --></MFBTextInput>
+		<input type='text' id='txtConfirmEmail' name='ConfirmEmail' class='MFBTextInput' /><!-- class='MFBContestInput'  name='ConfirmEmail' -->
 		<label for="Phone">Phone:</label>
-		<MFBTextInput class='MFBContestInput' validation='phone' name='Phone' display_name='Phone'> </MFBTextInput>
+		<input type='text' class='MFBContestInput MFBTextInput' validation='phone' name='Phone' display_name='Phone' />
         <label for="City">City:</label>
-		<MFBTextInput class='MFBContestInput' validation='required' name='City' display_name='City'> </MFBTextInput>
+		<input type='text' class='MFBContestInput MFBTextInput' validation='required' name='City' display_name='City' />
         <label for="State">State:</label>
-		<MFBTextInput class='MFBContestInput' validation='required' name='State' display_name='State'> </MFBTextInput>
+		<input type='text' class='MFBContestInput MFBTextInput' validation='required' name='State' display_name='State' />
         <div class="grid7 first">
 		<label for="BirthMonth">Birth Date:</label>
         </div>
 		<div class="grid2 first">
-        <MFBSelectInput id='selMonth' validation='required'  class='MFBContestInput' name='BirthMonth'  display_name='Birth Month'>
+        <select id='selMonth' validation='required'  class='MFBContestInput MFBSelectInput' name='BirthMonth'  display_name='Birth Month'>
 			<option value='-1'>Month</option>
 			<option value='1'>1</option>
 			<option value='2'>2</option>
@@ -39,10 +39,10 @@
 			<option value='10'>10</option>
 			<option value='11'>11</option>
 			<option value='12'>12</option>
-		</MFBSelectInput>
+		</select>
         </div>
 		<div class="grid2">
-		<MFBSelectInput id='selDay' validation='required'  class='MFBContestInput' name='BirthDay'  display_name='Birth Day'>
+		<select id='selDay' validation='required'  class='MFBContestInput MFBSelectInput' name='BirthDay'  display_name='Birth Day'>
 			<option value='-1'>Day</option>
 			<option value='1'>1</option>
 			<option value='2'>2</option>
@@ -75,10 +75,10 @@
 			<option value='29'>29</option>
 			<option value='30'>30</option>
 			<option value='31'>31</option>	
-		</MFBSelectInput>
+		</select>
 		</div>
         <div class="grid3">
-		<MFBSelectInput id='selYear' validation='required'  class='MFBContestInput' name='BirthYear'  display_name='Birth Year'>
+		<select id='selYear' validation='required'  class='MFBContestInput MFBSelectInput' name='BirthYear'  display_name='Birth Year'>
 			<option value="-1">Year:</option>
 			<option value="2011">2011</option>
 			<option value="2010">2010</option>
@@ -187,7 +187,7 @@
 			<option value="1907">1907</option>
 			<option value="1906">1906</option>
 			<option value="1905">1905</option>
-		</MFBSelectInput>
+		</select>
 		</div>	
 		<MFBUploadInput class='MFBContestInput'  name='Photo'  display_name='Photo'></MFBUploadInput><br />
 		

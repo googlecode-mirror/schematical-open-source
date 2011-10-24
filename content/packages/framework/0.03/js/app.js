@@ -2,7 +2,33 @@
  * Core MFB Funcationality
  * 
  */
-window.MFBAppInit = MFBAppInit = function(){	
+window.MFBAppInit = MFBAppInit = function(){
+	function MFBLink_click(objEvent){
+	
+		objEvent.preventDefault();
+		var jThis = $(this);
+		var objData = {};
+		var strCtlFile = jThis.attr('ctl_file');
+		var strTpl = jThis.attr('tpl');
+	
+		if(typeof strTpl != 'undefined'){
+			objData['tpl'] = strTpl;
+		}
+		if(jThis.attr('target') == '_blank'){	
+			if(typeof strCtlFile != 'undefined'){
+				objData['ctl_file'] = strCtlFile;
+				MFBAppPublic.TriggerEvent('.MFBLink_click', objData, {}, 'post', strCtlFile);
+			}
+			
+		}else{
+			if(typeof strCtlFile != 'undefined'){
+				objData['ctl_file'] = strCtlFile;									
+			}
+			MFBAppPublic.TriggerEvent('.MFBLink_click', objData, {}, 'ajax');
+		}
+		
+	
+	}
 	function DefaultInputTypeRead(strMatch){
 		var objData = {};
 		var jColl = $(this.EleSelector);
@@ -135,16 +161,31 @@ window.MFBAppInit = MFBAppInit = function(){
 				MFBAppPublic.RenderMFBInputs();
 			},			
 			CallBacks:{	
-				PromptForPermissions:function(objData){			
-					FB.ui({
-						   method: 'permissions.request',
-						   'perms': MFBAppPublic.objSettings.strPermissions,
-						   'display': 'iframe'
-						  },
-						  function(objResponse){
-							  MFBAppPublic.TriggerEvent('.FBProxyControl_permissions', objResponse);
-						  }
-					);
+				PromptForPermissions:function(objData){	
+					if($.browser.msie){			
+						MFBApp.CallBacks.PromptForPermissions = function(objData){			
+							FB.ui({
+								   method: 'permissions.request',
+								   'perms': MFBAppPublic.objSettings.strPermissions,
+								   'display': 'popup'
+								  },
+								  function(objResponse){
+									  MFBApp.TriggerEvent('.FBProxyControl_permissions', objResponse);
+								  }
+							);					
+						}
+					}else{
+						
+						FB.ui({
+							   method: 'permissions.request',
+							   'perms': MFBAppPublic.objSettings.strPermissions,
+							   'display': 'iframe'
+							  },
+							  function(objResponse){
+								  MFBAppPublic.TriggerEvent('.FBProxyControl_permissions', objResponse);
+							  }
+						);
+					}
 				},
 				PromptForFeedPost:function(objData){
 					objData.method = 'feed';
@@ -172,7 +213,8 @@ window.MFBAppInit = MFBAppInit = function(){
 			    	    appId  : this.objSettings.FB_APP_ID,
 			    	    status : true, // check login status
 			    	    cookie : true, // enable cookies to allow the server to access the session
-			    	    xfbml  : true  // parse XFBML
+			    	    xfbml  : true,  // parse XFBML
+			    	    channelUrl  : this.objSettings.Channel_URL//
 			    	});
 			    	FB.Canvas.setAutoResize();
 					
@@ -189,18 +231,19 @@ window.MFBAppInit = MFBAppInit = function(){
 						});
 					}
 					this.RenderMFBInputs();
-					
+					$('.MFBLink').live('click', MFBLink_click);
+
 				}
 			},
 			InputType:{
 				MFBTextInput:{
-					EleSelector:'.MFBTextInput_Rendered',
+					EleSelector:'.MFBTextInput',
 					IdType:1,
 					Render:function(objEle){
 						var jEle = $(objEle);
 						var jInput = $('<input type="text" />');						
 						jInput = TranferEleAttributes(jEle, jInput);
-						jInput.addClass('MFBTextInput_Rendered');
+						jInput.addClass('MFBTextInput');
 						jEle.replaceWith(jInput);
 					},
 					Read:DefaultInputTypeRead,
@@ -310,7 +353,7 @@ window.MFBAppInit = MFBAppInit = function(){
 					}			
 				},
 				MFBLongTextInput:{
-					EleSelector:'.MFBLongTextInput_Rendered',
+					EleSelector:'.MFBLongTextInput',
 					IdType:2,
 					Render:function(objEle){
 						var jEle = $(objEle);
@@ -357,7 +400,7 @@ window.MFBAppInit = MFBAppInit = function(){
 					}			
 				},
 				MFBStateInput:{
-					EleSelector:'.MFBStateInput_Rendered',
+					EleSelector:'.MFBStateInput',
 					IdType:5,//Same as MFBSelectInput
 					Render:function(objEle){
 						var jEle = $(objEle);
@@ -460,7 +503,7 @@ window.MFBAppInit = MFBAppInit = function(){
 					}				
 				},
 				MFBSelectInput:{
-					EleSelector:'.MFBSelectInput_Rendered',
+					EleSelector:'.MFBSelectInput',
 					IdType:5,
 					Render:function(objEle){
 						var jEle = $(objEle);
@@ -468,7 +511,7 @@ window.MFBAppInit = MFBAppInit = function(){
 						var jInput = $('<select></select>');
 						jInput.html(jEle.html());
 						jInput = TranferEleAttributes(jEle, jInput);
-						jInput.addClass('MFBSelectInput_Rendered');
+						jInput.addClass('MFBSelectInput');
 						jEle.replaceWith(jInput);
 					},
 					Read:DefaultInputTypeRead,
@@ -509,7 +552,7 @@ window.MFBAppInit = MFBAppInit = function(){
 					}
 				},
 				MFBUploadInput:{
-					EleSelector:'.MFBUploadInput_Rendered',
+					EleSelector:'.MFBUploadInput',
 					IdType:3,
 					SuccessHtml:'<h3>Upload Successful</h3>',
 					Read:DefaultInputTypeRead,
@@ -563,7 +606,7 @@ window.MFBAppInit = MFBAppInit = function(){
 						var jInput = $(strHtml);			
 						var jCInput = $('<input type="hidden" name="'+  strName+ '" value="-1" />');
 						jCInput = TranferEleAttributes(jEle, jCInput); 
-						jCInput.addClass('MFBUploadInput_Rendered');
+						jCInput.addClass('MFBUploadInput');
 						
 						jEle.replaceWith(jInput);
 						
@@ -581,10 +624,10 @@ window.MFBAppInit = MFBAppInit = function(){
 										var intIdAttachment = objResponse['idAttachment'];
 										var strValue = objResponse['value'];
 										var strHtml = new Array(
-												//'<input class="MFBUploadInput_Rendered" type="hidden" name="', objResponse['fieldName'], '" value="', intIdAttachment, '" />',
+												//'<input class="MFBUploadInput" type="hidden" name="', objResponse['fieldName'], '" value="', intIdAttachment, '" />',
 												'<h3>Upload Successful</h3>'
 										).join('');										
-										var jCInput = $('.MFBUploadInput_Rendered');
+										var jCInput = $('.MFBUploadInput');
 										jCInput.val(strValue);
 										$(this).replaceWith(strHtml);
 										
@@ -600,13 +643,13 @@ window.MFBAppInit = MFBAppInit = function(){
 					}
 				},
 				MFBCheckboxInput:{
-					EleSelector:'.MFBCheckboxInput_Rendered',
+					EleSelector:'.MFBCheckboxInput',
 					IdType:1,
 					Render:function(objEle){
 						var jEle = $(objEle);
 						var jInput = $('<input type="checkbox" />');						
 						jInput = TranferEleAttributes(jEle, jInput);
-						jInput.addClass('MFBCheckboxInput_Rendered');
+						jInput.addClass('MFBCheckboxInput');
 						jEle.replaceWith(jInput);
 					},
 					Read:function(strMatch){
@@ -677,40 +720,15 @@ window.MFBAppInit = MFBAppInit = function(){
 					}			
 				},
 				MFBLink:{
-					EleSelector:'.MFBLink_Rendered',
+					EleSelector:'.MFBLink',
 					IdType:2,
 					Render:function(objEle){
 						var jEle = $(objEle);
 						var jInput = $('<a href="#">' + jEle.html() + '</a>');						
 						jInput = TranferEleAttributes(jEle, jInput);
 						
-						jInput.addClass('MFBLink_Rendered');
-						jEle.replaceWith(jInput);
-						jInput.click(function(objEvent){
-							objEvent.preventDefault();
-							var jThis = $(this);
-							var objData = {};
-							var strCtlFile = jThis.attr('ctl_file');
-							var strTpl = jThis.attr('tpl');
-						
-							if(typeof strTpl != 'undefined'){
-								objData['tpl'] = strTpl;
-							}
-							if(jThis.attr('target') == '_blank'){	
-								if(typeof strCtlFile != 'undefined'){
-									objData['ctl_file'] = strCtlFile;
-									MFBAppPublic.TriggerEvent('.MFBLink_click', objData, {}, 'post', strCtlFile);
-								}
-								
-							}else{
-								if(typeof strCtlFile != 'undefined'){
-									objData['ctl_file'] = strCtlFile;									
-								}
-								MFBAppPublic.TriggerEvent('.MFBLink_click', objData, {}, 'ajax');
-							}
-							
-						});
-						
+						jInput.addClass('MFBLink');
+						jEle.replaceWith(jInput);						
 					},
 					Read:DefaultInputTypeRead,
 					Validate:function(strMatch){
