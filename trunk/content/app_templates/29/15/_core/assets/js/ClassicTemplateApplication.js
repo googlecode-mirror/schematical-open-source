@@ -1,7 +1,7 @@
 (function(window) {
 	
 	MFBContestApp.Validate = function(){
-		$('body').remove('.MFBAlert');
+		$('.MFBAlert').remove();
 		 var objData = MFBApp.ValidateMFBInputs('.MFBContestInput');
 		 //console.log(objData);
 		 var strMessage = '';

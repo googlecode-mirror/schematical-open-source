@@ -54,6 +54,7 @@ abstract class FBApplicationBase{
 					'event'=>$strEvent
 				);
 			}
+			$objSettings['Channel_URL'] = __BASE_URL__ . '/channel.html';
 			$objSettings['Events'] = $arrNewEvents;
 			$objSettings['strUrl'] = $_SERVER['REQUEST_URI'];
 			$objSettings['signed_request'] = self::$strSignedRequest;

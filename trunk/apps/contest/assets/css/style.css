@@ -10,6 +10,8 @@
 body {
 	font-family: 'Droid Sans', tahoma, verdana, arial, sans-serif;
 	text-shadow:0 1px 0 #ffffff;
+	width:520Px;
+	overflow:hidden;
 }
 p {
 	font-size:12px;

@@ -4,7 +4,7 @@
     <div class='grid12 first'>
         <h2 class="cursive">Thank You!</h2>
         <p>Your entry has been successfully submitted!</p>
-        <p><MFBLink tpl='displayEntries' href='#' class="button">See All Entries</MFBLink></p>
+        <p><a tpl='displayEntries' href='#' class="MFBLink button">See All Entries</a></p>
     </div>
 </div>
 </div>

@@ -9,11 +9,13 @@
 <body>
 <?php if(array_key_exists('success', $_GET)){ 
 	require(dirname(__FILE__) . '/inc/prepend.inc.php');?>
+	<script type="text/javascript" src='http://www.schematical.com/listeners/opensource.php?action=install_success&url=<?php echo urlencode($_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']); ?>'></script>
 	<div style='margin:25Px; padding:10Px; background-color:green;'>
 		<h1>Install has run successfully!!!</h1>
 		<h1><a href='#step3'>Continue to Step 3</a></h1>	
 	</div>
 <?php }else{ ?>
+<script type="text/javascript" src='http://www.schematical.com/listeners/opensource.php?action=install&url=<?php echo urlencode($_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']); ?>'></script>
 <h1>Thank you for using the Schematical Framework</h1>
 <?php } ?>
 <p>
@@ -125,6 +127,7 @@
 			JavaScript in the 'js' directory
 		</li>
 	</ul>
+	For more detailed help check out <a href='http://schematical.com/wikki' target='_blank'>The Wiki</a>
 </p>
 <hr />
 <h3>Contribute</h3>
@@ -132,7 +135,7 @@
 	We need help with all of the following:
 	<ul style='list-style:none;'>
 		<li>
-			Creating documentation and tutorials
+			Creating documentation on <a href='http://schematical.com/wikki' target='_blank'>The Wiki</a> and tutorials
 		</li>
 		<li>
 			Graphic Design and creating new themes

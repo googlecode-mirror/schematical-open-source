@@ -2,9 +2,9 @@
 /**
  * This config file will hold global configurations such as the __DOCROOT__ and DB credentials
  */
-define('__DOCROOT__', '/var/www/html/');
+define('__DOCROOT__', '/var/www/html/lab.mattleaconsulting/');
 
-define('__BASE_URL__', (array_key_exists('HTTPS', $_SERVER)?'https':'http') . '://lab.mattleaconsulting.com/schematical');
+define('__BASE_URL__', (array_key_exists('HTTPS', $_SERVER)?'https':'http') . '://lab.mattleaconsulting.com/pregame_app');
 //define('__DOCROOT__', 'xyz');
 define('DATABASE_1', serialize(array(
 	'host'=>'your_db_host',
