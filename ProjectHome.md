@@ -1,0 +1,1 @@
+Schematical is a platform for rapidly building and deploying Facebook applications.

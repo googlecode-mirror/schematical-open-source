@@ -1,0 +1,1 @@
+# Please see [Schematical's Wiki at schematical.com/wikki](http://schematical.com/wikki) #
